@@ -8,7 +8,9 @@ First of all, fork this repo and clone it in you local machine.
 
 As I utilized npm, you have to navigate to the folder and type in the prompt `npm install`, witch take some time because it is installing chromium -if you don't already have it.
 
-After the install process, go to `index.js` and change the urls array with the sites that you want to clone; then, type `npm start` in the terminal to run the program.
+After the install process, go to `index.js` and change the **urls array** with the site(s) that you want to clone; then, change the **"output"** string with the desire folder name that you want the HTML, CSS and JS files to go.
+
+Finally, type `npm start` in the terminal to run the program.
 
 That's it, all the process is done in the backend; just wait a little time.
 
