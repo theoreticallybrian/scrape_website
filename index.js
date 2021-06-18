@@ -5,7 +5,7 @@ const path = require("path");
 
 scrape({
   // paste it down here the URL(s) of the site(s) that you want to clone:
-  urls: ["url#1", "url#2"],
+  urls: ["https://www.google.com"],
   // Specify the path inside this folder where the content should be saved
   directory: path.resolve(__dirname, "output"),
   // Load the Puppeteer plugin

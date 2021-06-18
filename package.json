@@ -1,0 +1,13 @@
+{
+  "name": "scrape_link",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/diogojorgebasso/scrape_website.git",
+  "author": "Diogo Basso <diogojbasso@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "path": "^0.12.7",
+    "website-scraper": "^4.2.3",
+    "website-scraper-puppeteer": "^0.1.5"
+  }
+}
