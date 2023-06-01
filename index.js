@@ -1,43 +1,34 @@
 const scrape = require("website-scraper");
 const PuppeteerPlugin = require("website-scraper-puppeteer");
-const puppeteer = require("puppeteer");
 const path = require("path");
 
-async function scrapeWebsite() {
-  const url = "https://noones.com/id/login?next=https%3A//auth.noones.com/oauth2/authorize%3Flocale%3Den%26state%3D2ed8c7ddc2cd30982bac2add67c42c88%26response_type%3Dcode%26approval_prompt%3Dauto%26redirect_uri%3Dhttps%253A%252F%252Fnoones.com%252Flogin%252Fcallback%26client_id%3Dh9VAgMcfYPfoBaihBIfKt7An7UwFon5aKFjrm68dzFdxZ7Tj";
-
-  // Launch Puppeteer and visit the URL
-  const browser = await puppeteer.launch({ headless: false });
-  const page = await browser.newPage();
-  await page.goto(url);
-
-  // Wait for the window.onload event
-  await page.evaluate(() => {
-    return new Promise((resolve) => {
-      window.onload = resolve;
+async function runScraping() {
+  try {
+    await scrape({
+      urls: ["https://pesachapchap.com/loan-eligibility/1176"],
+      directory: path.resolve(__dirname, "output2"),
+      plugins: [
+        new PuppeteerPlugin({
+          launchOptions: {
+            headless: false,
+            defaultViewport: {
+              width: 1366, // Set the desired width for desktop emulation
+              height: 768, // Set the desired height for desktop emulation
+            },
+          },
+          scrollToBottom: {
+            timeout: 3000, // Adjust the timeout value as needed
+            viewportN: 10, // Adjust the number of viewport scrolls as needed
+          },
+          // Wait for navigation to complete before scraping
+          waitForNavigation: true,
+        }),
+      ],
     });
-  });
-
-  // Scrape the website
-  await scrape({
-    urls: [url],
-    directory: path.resolve(__dirname, "websitescrapeoutput2"),
-    plugins: [
-      new PuppeteerPlugin({
-        browser: browser,
-        page: page,
-        scrollToBottom: {
-          timeout: 3000,
-          viewportN: 10
-        },
-        waitUntil: "networkidle0",
-        waitForNavigation: "networkidle0"
-      })
-    ]
-  });
-
-  // Close the browser
-  await browser.close();
+    console.log("Scraping complete!");
+  } catch (err) {
+    console.error("An error occurred while scraping:", err);
+  }
 }
 
-scrapeWebsite();
+runScraping();
