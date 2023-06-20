@@ -2,8 +2,8 @@
   "name": "scrape_link",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/diogojorgebasso/scrape_website.git",
-  "author": "Diogo Basso <diogojbasso@gmail.com>",
+  "repository": "",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "path": "^0.12.7",

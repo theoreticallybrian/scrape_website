@@ -5,7 +5,7 @@ const path = require("path");
 async function runScraping() {
   try {
     await scrape({
-      urls: ["https://pesachapchap.com/loan-eligibility/1176"],
+      urls: ["https://online-dating.link/ke/?cn=16313171955&gp=135277151484&gclid=EAIaIQobChMIusiPl_3A_wIVRsvVCh26PQoQEAAYASAAEgJoPfD_BwE"],
       directory: path.resolve(__dirname, "output2"),
       plugins: [
         new PuppeteerPlugin({
